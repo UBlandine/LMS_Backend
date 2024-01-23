@@ -1,0 +1,38 @@
+{
+  "name": "librarymanagement",
+  "version": "1.0.0",
+  "description": "Nodejs, express, mongodb,libraryManagement",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honorinebeb/libraryManagement.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "express",
+    "mongodb",
+    "libraryManagement"
+  ],
+  "author": "honorine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/honorinebeb/libraryManagement/issues"
+  },
+  "homepage": "https://github.com/honorinebeb/libraryManagement#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.11.0",
+    "joi-password-complexity": "^5.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.4",
+    "nodemon": "^3.0.2"
+  }
+}
