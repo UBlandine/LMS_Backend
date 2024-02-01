@@ -1,12 +1,14 @@
 const express = require('express');
-const UserRouter = express.Router();
-const { record, findById, remove, list, update, findByEmail } = require('../controllers/user.controller');
+const passport = require('passport')
+const {getUser} = require('../controller/user.controller');
+const { findById, remove, list, update, findByEmail } = require('../controllers/user.controller');
+const userRouter = express.Router();
 
-UserRouter.post('/add', record);
-UserRouter.get('/list', list);
-UserRouter.put('/update', update);
-UserRouter.delete('/delete', remove);
-UserRouter.get('/findById', findById);
-UserRouter.get('/findByEmail/:email', findByEmail);
+userRouter.get('/list', list);
+userRouter.put('/update', update);
+userRouter.delete('/delete', remove);
+userRouter.get('/findById', findById);
+userRouter.get('/findByEmail/:email', findByEmail);
+userRouter.get('/profile',getUser);
 
-module.exports = UserRouter;
+module.exports= userRouter;
