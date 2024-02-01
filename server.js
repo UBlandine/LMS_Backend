@@ -10,8 +10,6 @@ const session = require("express-session");
 
 const app = express();
 
-
-
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
@@ -86,5 +84,5 @@ app.listen(process.env.PORT, () => {
     .catch(err => console.log("> Couldn't connect to MongoDB..."));
 });
 
-app.use('/api/expauth/v1', allRoutes);
+app.use('/api/v1', allRoutes);
 
