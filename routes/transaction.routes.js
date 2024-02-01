@@ -9,7 +9,5 @@ TransactionRouter.delete('/delete', remove);
 TransactionRouter.get('/findById', findById);
 TransactionRouter.get('/findByTransaction', findByTransaction);
 
-
-
 module.exports = TransactionRouter;
 
