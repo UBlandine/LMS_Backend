@@ -61,8 +61,7 @@ passport.use(new GoogleStrategy({
     } else {
       // User doesn't exist, create a new user using social media profile data
       const newUser = new UserModel({
-        firstName: profile.name.givenName,
-        secondName: profile.name.familyName,
+        fullName: profile.name.givenName + " " + familyName,
         email: profile.emails[0].value,
        
       });

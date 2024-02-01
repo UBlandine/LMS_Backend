@@ -11,7 +11,7 @@ const express = require('express');
 
 require('dotenv').config()
 const SignUp = async (req, res, next) => {
-    const { firstName, secondName, email, password, confirmPassword } = req.body;
+    const { fullName, email, password, confirmPassword } = req.body;
     try {
         var userExists = await UserModel.findOne({ email: email });
         console.log(userExists);
@@ -21,8 +21,7 @@ const SignUp = async (req, res, next) => {
             const hashedPassword = bcryptjs.hashSync(password, 10);
             
             var newUser = new UserModel({
-                firstName: firstName,
-                secondName: secondName,
+                fullName: fullName,
                 email: email, 
                 password: hashedPassword, 
                 confirmPassword: hashedPassword,
@@ -46,10 +45,10 @@ const SignIn = async (req, res, next) => {
     const { email, password } = req.body;
     try {
         const validUser = await UserModel.findOne({ email: email});    
-        if (!validUser) return next(errorHandler(401, "Invalid username or password"));
+        if (!validUser) return res.status(401).json({message: "Invalid username or password"});
 
         const validPassword = bcryptjs.compareSync(password, validUser.password);
-        if (!validPassword) return next(errorHandler(401, "Invalid username or password"));    
+        if (!validPassword) return res.status(401).json({message: "Invalid username or password"});  
 
         const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET_KEY);
 
@@ -75,7 +74,7 @@ const ForgotPassword = async (req, res, next) => {
         
         var token = jwt.sign({ email: req.body }, process.env.JWT_SECRET_KEY, { expiresIn: 1200 });
 
-        var recoveryLink = `http://localhost:3000/reset-password/${token}/${validUser._id}`;
+        var recoveryLink = `http://localhost:5000/reset-password/${token}/${validUser._id}`;
         
         sendEmail(validUser.email, 'Reset Password', recoveryLink);
 
