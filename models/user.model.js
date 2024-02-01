@@ -20,6 +20,11 @@ const UserSchema = new Schema({
         type: String, 
         required: true,
     },
+    borrowedBooks:{
+        type: [Schema.Types.ObjectId],
+        ref: 'Book',
+        default: []
+    }
    
 } );
 

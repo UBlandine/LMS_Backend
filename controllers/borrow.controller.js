@@ -1,4 +1,6 @@
 const borrowModel = require('../models/borrow.model');
+const User = require('../models/user.model');
+const Book = require('../models/book.model');
 
 
 // Controller function for borrowing a book
