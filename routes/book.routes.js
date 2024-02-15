@@ -6,7 +6,8 @@ BookRouter.post('/add', record);
 BookRouter.get('/list', list);
 BookRouter.put('/update', update);
 BookRouter.delete('/delete', remove);
-BookRouter.get('/findById', findById);
+BookRouter.get('/findById/:id', findById); // receiving id parameter
+
 
 
 module.exports = BookRouter;

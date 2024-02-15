@@ -14,9 +14,7 @@ const record = async (req, res, next) =>{
 const list = async (req, res, next) => {
   try{
     var allBooks = await bookModel.find({});
-    res.status(200).json({
-      users: allBooks
-    });
+    res.status(200).json(allBooks);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -24,11 +22,9 @@ const list = async (req, res, next) => {
 const findById = async (req, res, next) => {
 
   try {
-    let bookId = req.query.id;
+    let bookId = req.params.id;
     var foundBook = await bookModel.findById(bookId);
-    res.status(200).json({
-      user: foundBook
-  });
+    res.status(200).json(foundBook);
 } catch (error) {
   res.status(500).send(error);
 }

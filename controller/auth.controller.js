@@ -31,7 +31,7 @@ const SignUp = async (req, res, next) => {
             res.status(201).json({ message: 'Account created!', savedUser});
             var subject= "Wisdom Library";
             var message = "You have signed Up successfully";
-            var a = "kayitesililiane73@gmail.com";
+            var a = savedUser.email;
             await sendEmail(a,subject,message);
         }
     } catch (error) {

@@ -1,8 +1,6 @@
 const buyModel = require('../models/buy.model');
 const User = require('../models/user.model');
 const Book = require('../models/book.model');
-
-
 const Buy = require('../models/buy.model');
 
 // Controller function to handle book purchase
